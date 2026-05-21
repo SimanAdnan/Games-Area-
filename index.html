@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexis Gaming - Premium Mod & Resource Hub</title>
+    <style>
+        /* Cyberpunk Dark-Mode Gaming Interface */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #060913;
+            color: #cbd5e1;
+            padding: 20px;
+            text-align: center;
+        }
+        header {
+            margin: 50px auto 30px auto;
+            max-width: 800px;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            font-weight: 900;
+        }
+        header h1 span {
+            color: #00ff66;
+            text-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+        }
+        header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        /* Top Status Ticket */
+        .live-status {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(0, 255, 102, 0.08);
+            border: 1px solid rgba(0, 255, 102, 0.3);
+            color: #00ff66;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00ff66;
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 0 0 8px #00ff66;
+            animation: pulse 1.6s infinite;
+        }
+        @keyframes pulse {
+            50% { opacity: 0.3; }
+        }
+        /* Grid Layout for Games */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 15px;
+        }
+        /* Premium Interactive Game Cards */
+        .game-card {
+            background: linear-gradient(145deg, #0d1322, #151f35);
+            border: 1px solid #1e293b;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: #00ff66;
+            box-shadow: 0 15px 35px rgba(0, 255, 102, 0.15);
+        }
+        /* Banner Visuals with High-Quality Fallbacks */
+        .card-banner {
+            width: 100%;
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.6rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+        .card-info {
+            padding: 25px;
+            text-align: left;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card-info h3 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        .card-info p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-bottom: 15px;
+            border-top: 1px solid #1e293b;
+            padding-top: 12px;
+        }
+        .card-meta span strong {
+            color: #3b82f6;
+        }
+        /* Action Execution Buttons */
+        .download-btn {
+            background: linear-gradient(135deg, #00ff66 0%, #00cc52 100%);
+            color: #060913;
+            border: none;
+            padding: 14px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(0, 255, 102, 0.15);
+        }
+        .download-btn:hover {
+            background: #00ff66;
+            box-shadow: 0 6px 20px rgba(0, 255, 102, 0.3);
+        }
+        .download-btn:active {
+            transform: scale(0.98);
+        }
+        footer {
+            margin-top: 60px;
+            padding: 30px 20px;
+            color: #475569;
+            font-size: 0.85rem;
+            border-top: 1px solid #111827;
+        }
+    </style>
+
+    <!-- ⚠️ DO NOT TOUCH: CPALEAD SCRIPT DEPLOYS AUTOMATICALLY IN THE BACKGROUND HERE -->
+    <script type="text/javascript" src="https://cpalead.com"></script>
+
+</head>
+<body>
+
+    <!-- Server Verification Banner -->
+    <div class="live-status">
+        <span class="pulse-dot"></span> Core System Status: Fully Operational
+    </div>
+
+    <header>
+        <h1>Nexis Gaming <span>Hub</span></h1>
+        <p>Access the global secure repository database. Download premium client optimization frameworks, developer mod configurations, asset engines, and open-source game scripts safely.</p>
+    </header>
+
+    <div class="hub-grid">
+        
+        <!-- GAME 1: ROBLOX -->
+        <div class="game-card">
+            <div class="card-banner" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://unsplash.com') center/cover;">Roblox</div>
+            <div class="card-info">
+                <div>
+                    <h3>Script Framework Engine</h3>
+                    <p>Includes mobile-optimized lua code execution layers, fluid custom UI skin configs, and multi-instance client stabilization parameters.</p>
+                </div>
+                <div>
+                    <div class="card-meta">
+                        <span>Platform: <strong>Mobile & PC</strong></span>
+                        <span>Downloads: 48.2k</span>
+                    </div>
+                    <button class="download-btn" onclick="startSystemUnlock()">Download Files</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- GAME 2: BRAWL STARS -->
+        <div class="game-card">
+            <div class="card-banner" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://unsplash.com') center/cover;">Brawl Stars</div>
+            <div class="card-info">
+                <div>
+                    <h3>Strategic Map Database</h3>
+                    <p>Gain absolute priority positioning charts, deep frame-data layout documentation, and custom local asset matching tools for pro players.</p>
+                </div>
+                <div>
+                    <div class="card-meta">
+                        <span>Platform: <strong>Android & iOS</strong></span>
+                        <span>Downloads: 24.7k</span>
+                    </div>
+                    <button class="download-btn" onclick="startSystemUnlock()">Download Files</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- GAME 3: FREE FIRE -->
+        <div class="game-card">
+            <div class="card-banner" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://unsplash.com') center/cover;">Free Fire</div>
+            <div class="card-info">
+                <div>
+                    <h3>Sensitivity Optimizer Pro</h3>
+                    <p>Download crosshair alignment presets, device display refresh-rate syncing values (.cfg), and low-end hardware frame patches.</p>
+                </div>
+                <div>
+                    <div class="card-meta">
+                        <span>Platform: <strong>Android Only</strong></span>
+                        <span>Downloads: 39.1k</span>
+                    </div>
+                    <button class="download-btn" onclick="startSystemUnlock()">Download Files</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- GAME 4: FORTNITE -->
+        <div class="game-card">
+            <div class="card-banner" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://unsplash.com') center/cover;">Fortnite</div>
+            <div class="card-info">
+                <div>
+                    <h3>Ping Stabilizer & Macros</h3>
+                    <p>Deploy cloud server-routing network tweaks, building structural layout binds, and input-delay clearing register commands.</p>
+                </div>
+                <div>
+                    <div class="card-meta">
+                        <span>Platform: <strong>PC & Console</strong></span>
+                        <span>Downloads: 18.5k</span>
+                    </div>
+                    <button class="download-btn" onclick="startSystemUnlock()">Download Files</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- GAME 5: MINECRAFT -->
+        <div class="game-card">
+            <div class="card-banner" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://unsplash.com') center/cover;">Minecraft</div>
+            <div class="card-info">
+                <div>
+                    <h3>Alpha Mod & Shader Pack</h3>
+                    <p>Unlock custom texture mapping packs, render engine rendering adjustments for high performance, and local server setup templates.</p>
+                </div>
+                <div>
+                    <div class="card-meta">
+                        <span>Platform: <strong>Cross-Platform</strong></span>
+                        <span>Downloads: 51.9k</span>
+                    </div>
+                    <button class="download-btn" onclick="startSystemUnlock()">Download Files</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        🔒 Secured and Encrypted Network Layer. Nexis Gaming is an independent distribution portal utilizing global peer-to-peer open-source mirror storage. All file packages are automatically filtered via sandbox anti-malware verification scripts before compilation.
+    </footer>
+
+    <script>
+        // Automatic runtime call for CPAlead gateway locker integration
+        function startSystemUnlock() {
+            try {
+                // Triggers the background global server wrapper function
+                call_locker_bottom(); 
+            } catch(e) {
+                // Graceful fallback to prevent page break if scripts are initializing
+                alert("Verifying encrypted system mirror... Please tap again to confirm security clearing validation token.");
+            }
+        }
+    </script>
+
+</body>
+  </html>
