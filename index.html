@@ -2,301 +2,383 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexis Gaming - Premium Mod & Resource Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TITAN KERNEL | ANDROID MOD REPOSITORY</title>
     <style>
-        /* Cyberpunk Dark-Mode Gaming Interface */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        /* --- CORE VARIABLES & RESET --- */
+        :root {
+            --neon-green: #00ff41;
+            --neon-cyan: #00f3ff;
+            --dark-bg: #050505;
+            --card-bg: #0a0f14;
+            --border: #1f2937;
         }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        
         body {
-            background-color: #060913;
-            color: #cbd5e1;
-            padding: 20px;
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-image: 
+                linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* --- TOP SYSTEM BAR --- */
+        .sys-bar {
+            background: #000;
+            color: var(--neon-green);
+            padding: 8px;
+            font-size: 0.7rem;
             text-align: center;
-        }
-        header {
-            margin: 50px auto 30px auto;
-            max-width: 800px;
-        }
-        header h1 {
-            font-size: 2.8rem;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 12px;
-            font-weight: 900;
-        }
-        header h1 span {
-            color: #00ff66;
-            text-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
-        }
-        header p {
-            color: #94a3b8;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        /* Top Status Ticket */
-        .live-status {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(0, 255, 102, 0.08);
-            border: 1px solid rgba(0, 255, 102, 0.3);
-            color: #00ff66;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: bold;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 20px;
         }
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #00ff66;
-            border-radius: 50%;
-            margin-right: 10px;
-            box-shadow: 0 0 8px #00ff66;
-            animation: pulse 1.6s infinite;
+        .blink { animation: blinker 1.5s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        /* --- HEADER --- */
+        header {
+            text-align: center;
+            padding: 40px 15px 20px 15px;
         }
-        @keyframes pulse {
-            50% { opacity: 0.3; }
+        h1 {
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
         }
-        /* Grid Layout for Games */
-        .hub-grid {
+        h1 span { color: var(--neon-green); }
+        .sub { color: #6b7280; font-size: 0.85rem; max-width: 400px; margin: 0 auto; }
+
+        /* --- SEARCH BAR VISUAL --- */
+        .fake-search {
+            background: #111827;
+            border: 1px solid #374151;
+            border-radius: 50px;
+            margin: 20px auto;
+            max-width: 500px;
+            padding: 12px 20px;
+            text-align: left;
+            color: #9ca3af;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        .fake-search::before { content: "🔍"; margin-right: 10px; filter: grayscale(1); }
+
+        /* --- APP GRID (MOBILE OPTIMIZED) --- */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 15px;
+            /* This magic layout puts 2 cards per row on phones, 4 on PC */
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 15px;
+            padding-bottom: 80px;
         }
-        /* Premium Interactive Game Cards */
-        .game-card {
-            background: linear-gradient(145deg, #0d1322, #151f35);
-            border: 1px solid #1e293b;
-            border-radius: 16px;
+
+        /* --- CARD DESIGN --- */
+        .app-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
+            position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+        }
+        .app-card:active { transform: scale(0.98); border-color: var(--neon-green); }
+        
+        /* Image Area */
+        .thumb-area {
+            height: 100px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
             position: relative;
         }
-        .game-card:hover {
-            transform: translateY(-8px);
-            border-color: #00ff66;
-            box-shadow: 0 15px 35px rgba(0, 255, 102, 0.15);
-        }
-        /* Banner Visuals with High-Quality Fallbacks */
-        .card-banner {
-            width: 100%;
-            height: 170px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 1.6rem;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-        }
-        .card-info {
-            padding: 25px;
-            text-align: left;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .card-info h3 {
-            font-size: 1.4rem;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-        .card-info p {
-            font-size: 0.95rem;
-            color: #94a3b8;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-        .card-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            color: #64748b;
-            margin-bottom: 15px;
-            border-top: 1px solid #1e293b;
-            padding-top: 12px;
-        }
-        .card-meta span strong {
-            color: #3b82f6;
-        }
-        /* Action Execution Buttons */
-        .download-btn {
-            background: linear-gradient(135deg, #00ff66 0%, #00cc52 100%);
-            color: #060913;
-            border: none;
-            padding: 14px 20px;
-            font-size: 1rem;
+        .mod-tag {
+            position: absolute;
+            bottom: 0; right: 0;
+            background: var(--neon-green);
+            color: #000;
+            font-size: 0.6rem;
+            padding: 2px 6px;
             font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
+            border-top-left-radius: 8px;
+        }
+
+        /* Info Area */
+        .info { padding: 12px; flex-grow: 1; }
+        .info h3 {
+            font-size: 0.95rem;
+            color: #fff;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .meta { font-size: 0.65rem; color: #6b7280; display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .meta span { color: var(--neon-cyan); }
+
+        /* Button */
+        .get-btn {
+            background: #1f2937;
+            color: var(--neon-green);
+            border: 1px solid #374151;
             width: 100%;
-            transition: all 0.2s ease;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 12px rgba(0, 255, 102, 0.15);
         }
-        .download-btn:hover {
-            background: #00ff66;
-            box-shadow: 0 6px 20px rgba(0, 255, 102, 0.3);
-        }
-        .download-btn:active {
-            transform: scale(0.98);
-        }
+
+        /* --- FOOTER --- */
         footer {
-            margin-top: 60px;
-            padding: 30px 20px;
-            color: #475569;
-            font-size: 0.85rem;
-            border-top: 1px solid #111827;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #4b5563;
+            padding: 30px;
+            border-top: 1px solid #1f2937;
         }
     </style>
 
-    <!-- ⚠️ DO NOT TOUCH: CPALEAD SCRIPT DEPLOYS AUTOMATICALLY IN THE BACKGROUND HERE -->
-    <script type="text/javascript" src="https://cpalead.com"></script>
+    <!-- ⚠️ PASTE YOUR CPALEAD SCRIPT LINK HERE -->
+    <script type="text/javascript" src="https://www.cpalead.com/content_lockers/javascript.php?id=YOUR_ACTUAL_ID_HERE"></script>
 
 </head>
 <body>
 
-    <!-- Server Verification Banner -->
-    <div class="live-status">
-        <span class="pulse-dot"></span> Core System Status: Fully Operational
+    <div class="sys-bar">
+        <span class="blink">●</span> SERVER LIVE | DATABASE VER: 4.0.2
     </div>
 
     <header>
-        <h1>Nexis Gaming <span>Hub</span></h1>
-        <p>Access the global secure repository database. Download premium client optimization frameworks, developer mod configurations, asset engines, and open-source game scripts safely.</p>
+        <h1>TITAN <span>MODS</span></h1>
+        <p class="sub">Root-free Android modifications. Unlocked premium assets. Anti-ban architecture.</p>
+        
+        <div class="fake-search">Search database...</div>
     </header>
 
-    <div class="hub-grid">
-        
-        <!-- GAME 1: ROBLOX -->
-        <div class="game-card">
-            <div class="card-banner" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://unsplash.com') center/cover;">Roblox</div>
-            <div class="card-info">
-                <div>
-                    <h3>Script Framework Engine</h3>
-                    <p>Includes mobile-optimized lua code execution layers, fluid custom UI skin configs, and multi-instance client stabilization parameters.</p>
-                </div>
-                <div>
-                    <div class="card-meta">
-                        <span>Platform: <strong>Mobile & PC</strong></span>
-                        <span>Downloads: 48.2k</span>
-                    </div>
-                    <button class="download-btn" onclick="startSystemUnlock()">Download Files</button>
-                </div>
+    <div class="grid">
+
+        <!-- 1. ROBLOX -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1605901309584-818e25960a8f?q=80&w=300');">
+                <div class="mod-tag">MENU V5</div>
+            </div>
+            <div class="info">
+                <h3>Roblox</h3>
+                <div class="meta">120MB <span>★ 4.9</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
             </div>
         </div>
 
-        <!-- GAME 2: BRAWL STARS -->
-        <div class="game-card">
-            <div class="card-banner" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://unsplash.com') center/cover;">Brawl Stars</div>
-            <div class="card-info">
-                <div>
-                    <h3>Strategic Map Database</h3>
-                    <p>Gain absolute priority positioning charts, deep frame-data layout documentation, and custom local asset matching tools for pro players.</p>
-                </div>
-                <div>
-                    <div class="card-meta">
-                        <span>Platform: <strong>Android & iOS</strong></span>
-                        <span>Downloads: 24.7k</span>
-                    </div>
-                    <button class="download-btn" onclick="startSystemUnlock()">Download Files</button>
-                </div>
+        <!-- 2. FREE FIRE -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=300');">
+                <div class="mod-tag">HEADSHOT</div>
+            </div>
+            <div class="info">
+                <h3>Free Fire</h3>
+                <div class="meta">90MB <span>★ 4.8</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
             </div>
         </div>
 
-        <!-- GAME 3: FREE FIRE -->
-        <div class="game-card">
-            <div class="card-banner" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://unsplash.com') center/cover;">Free Fire</div>
-            <div class="card-info">
-                <div>
-                    <h3>Sensitivity Optimizer Pro</h3>
-                    <p>Download crosshair alignment presets, device display refresh-rate syncing values (.cfg), and low-end hardware frame patches.</p>
-                </div>
-                <div>
-                    <div class="card-meta">
-                        <span>Platform: <strong>Android Only</strong></span>
-                        <span>Downloads: 39.1k</span>
-                    </div>
-                    <button class="download-btn" onclick="startSystemUnlock()">Download Files</button>
-                </div>
+        <!-- 3. PUBG MOBILE (NEW) -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1593305841991-05c29736ce0b?q=80&w=300');">
+                <div class="mod-tag">NO RECOIL</div>
+            </div>
+            <div class="info">
+                <h3>PUBG Mobile</h3>
+                <div class="meta">1.2GB <span>★ 4.7</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
             </div>
         </div>
 
-        <!-- GAME 4: FORTNITE -->
-        <div class="game-card">
-            <div class="card-banner" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://unsplash.com') center/cover;">Fortnite</div>
-            <div class="card-info">
-                <div>
-                    <h3>Ping Stabilizer & Macros</h3>
-                    <p>Deploy cloud server-routing network tweaks, building structural layout binds, and input-delay clearing register commands.</p>
-                </div>
-                <div>
-                    <div class="card-meta">
-                        <span>Platform: <strong>PC & Console</strong></span>
-                        <span>Downloads: 18.5k</span>
-                    </div>
-                    <button class="download-btn" onclick="startSystemUnlock()">Download Files</button>
-                </div>
+        <!-- 4. BRAWL STARS -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=300');">
+                <div class="mod-tag">UNLOCKED</div>
+            </div>
+            <div class="info">
+                <h3>Brawl Stars</h3>
+                <div class="meta">200MB <span>★ 4.9</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
             </div>
         </div>
 
-        <!-- GAME 5: MINECRAFT -->
-        <div class="game-card">
-            <div class="card-banner" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://unsplash.com') center/cover;">Minecraft</div>
-            <div class="card-info">
-                <div>
-                    <h3>Alpha Mod & Shader Pack</h3>
-                    <p>Unlock custom texture mapping packs, render engine rendering adjustments for high performance, and local server setup templates.</p>
-                </div>
-                <div>
-                    <div class="card-meta">
-                        <span>Platform: <strong>Cross-Platform</strong></span>
-                        <span>Downloads: 51.9k</span>
-                    </div>
-                    <button class="download-btn" onclick="startSystemUnlock()">Download Files</button>
-                </div>
+        <!-- 5. MINECRAFT PE -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?q=80&w=300');">
+                <div class="mod-tag">X-RAY</div>
+            </div>
+            <div class="info">
+                <h3>Minecraft PE</h3>
+                <div class="meta">400MB <span>★ 4.8</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
+            </div>
+        </div>
+
+        <!-- 6. CAR PARKING MULTIPLAYER (NEW) -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1532974297617-c0f05fe48bff?q=80&w=300');">
+                <div class="mod-tag">UNLIMITED $</div>
+            </div>
+            <div class="info">
+                <h3>Car Parking Multi</h3>
+                <div class="meta">500MB <span>★ 4.6</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
+            </div>
+        </div>
+
+        <!-- 7. CALL OF DUTY MOBILE -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1519669556878-63bdad8a1a49?q=80&w=300');">
+                <div class="mod-tag">CP HACK</div>
+            </div>
+            <div class="info">
+                <h3>COD Mobile</h3>
+                <div class="meta">2.4GB <span>★ 4.8</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
+            </div>
+        </div>
+
+        <!-- 8. STUMBLE GUYS (NEW) -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1551103782-8ab07afd45c1?q=80&w=300');">
+                <div class="mod-tag">GEMS MENU</div>
+            </div>
+            <div class="info">
+                <h3>Stumble Guys</h3>
+                <div class="meta">150MB <span>★ 4.7</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
+            </div>
+        </div>
+
+        <!-- 9. SUBWAY SURFERS (NEW) -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=300');">
+                <div class="mod-tag">KEYS/COINS</div>
+            </div>
+            <div class="info">
+                <h3>Subway Surfers</h3>
+                <div class="meta">110MB <span>★ 4.9</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
+            </div>
+        </div>
+
+        <!-- 10. GTA V MOBILE (CLOUD) -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1583864697784-a0efc8310f10?q=80&w=300');">
+                <div class="mod-tag">CLOUD APK</div>
+            </div>
+            <div class="info">
+                <h3>GTA V Mobile</h3>
+                <div class="meta">65MB <span>★ 4.5</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
+            </div>
+        </div>
+
+        <!-- 11. CLASH OF CLANS (NEW) -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1535402682922-c649b3b37669?q=80&w=300');">
+                <div class="mod-tag">PRIVATE SVR</div>
+            </div>
+            <div class="info">
+                <h3>Clash of Clans</h3>
+                <div class="meta">350MB <span>★ 4.8</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
+            </div>
+        </div>
+
+        <!-- 12. AMONG US (NEW) -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1531297461136-82c322a26508?q=80&w=300');">
+                <div class="mod-tag">IMPOSTOR</div>
+            </div>
+            <div class="info">
+                <h3>Among Us</h3>
+                <div class="meta">120MB <span>★ 4.6</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
+            </div>
+        </div>
+
+        <!-- 13. COIN MASTER -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1628149269526-35db690e9175?q=80&w=300');">
+                <div class="mod-tag">SPIN GEN</div>
+            </div>
+            <div class="info">
+                <h3>Coin Master</h3>
+                <div class="meta">80MB <span>★ 4.7</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
+            </div>
+        </div>
+
+        <!-- 14. FORTNITE MOBILE -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1589241062272-c0a000072dfa?q=80&w=300');">
+                <div class="mod-tag">FPS BOOST</div>
+            </div>
+            <div class="info">
+                <h3>Fortnite Mobile</h3>
+                <div class="meta">2.1GB <span>★ 4.4</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
+            </div>
+        </div>
+
+        <!-- 15. GENSHIN IMPACT -->
+        <div class="app-card">
+            <div class="thumb-area" style="background-image: url('https://images.unsplash.com/photo-1580234550905-44344a524b3b?q=80&w=300');">
+                <div class="mod-tag">PRIMOGEMS</div>
+            </div>
+            <div class="info">
+                <h3>Genshin Impact</h3>
+                <div class="meta">3.5GB <span>★ 4.9</span></div>
+                <button class="get-btn" onclick="unlock()">Inject</button>
             </div>
         </div>
 
     </div>
 
     <footer>
-        🔒 Secured and Encrypted Network Layer. Nexis Gaming is an independent distribution portal utilizing global peer-to-peer open-source mirror storage. All file packages are automatically filtered via sandbox anti-malware verification scripts before compilation.
+        <p>TITAN KERNEL IS AN OPEN-SOURCE REPOSITORY MIRROR.<br>ALL FILES USER-SUBMITTED.</p>
     </footer>
 
     <script>
-        // Automatic runtime call for CPAlead gateway locker integration
-        function startSystemUnlock() {
+        // GLOBAL LOCKER TRIGGER
+        function unlock() {
+            // 1. Try Standard CPAlead Call
             try {
-                // Triggers the background global server wrapper function
                 call_locker_bottom(); 
-            } catch(e) {
-                // Graceful fallback to prevent page break if scripts are initializing
-                alert("Verifying encrypted system mirror... Please tap again to confirm security clearing validation token.");
+            } catch(err) {
+                // 2. Try Legacy Call
+                try {
+                    cpalead_locker();
+                } catch(err2) {
+                    // 3. Fallback
+                    alert("TITAN SYSTEM: Establishing secure connection... Please wait for verification.");
+                }
             }
         }
     </script>
 
 </body>
-  </html>
+    </html>
