@@ -145,6 +145,7 @@
             border-top-left-radius: 10px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            z-index: 2;
         }
 
         /* Info Area */
@@ -223,76 +224,77 @@
 
     <script>
         // ==========================================
-        // NEXIS DATABASE - 50 PREMIUM GAMES
+        // NEXIS DATABASE - CLEANED & OPTIMIZED
+        // Image URLs are now automatically generated!
         // ==========================================
         const nexisDatabase = [
             // --- SHOOTERS & BATTLE ROYALE ---
-            { title: "Delta Force: Hawk Ops", size: "3.2 GB", rating: "4.9", tag: "AIMBOT + ESP", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=400" },
-            { title: "PUBG Mobile", size: "1.8 GB", rating: "4.8", tag: "NO RECOIL", img: "https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?auto=format&fit=crop&q=80&w=400" },
-            { title: "Free Fire MAX", size: "800 MB", rating: "4.7", tag: "AUTO HEADSHOT", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=400" },
-            { title: "Call of Duty Mobile", size: "2.4 GB", rating: "4.6", tag: "CP GENERATOR", img: "https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?auto=format&fit=crop&q=80&w=400" },
-            { title: "Blood Strike", size: "850 MB", rating: "4.7", tag: "WALLHACK", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=400" },
-            { title: "Warzone Mobile", size: "3.5 GB", rating: "4.5", tag: "FPS BOOST/ESP", img: "https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?auto=format&fit=crop&q=80&w=400" },
-            { title: "Standoff 2", size: "1.2 GB", rating: "4.6", tag: "SKIN CHANGER", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=400" },
-            { title: "Farlight 84", size: "1.5 GB", rating: "4.5", tag: "UNLIMITED GOLD", img: "https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&q=80&w=400" },
-            { title: "Critical Ops", size: "900 MB", rating: "4.4", tag: "RADAR HACK", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=400" },
+            { title: "Delta Force: Hawk Ops", size: "3.2 GB", rating: "4.9", tag: "AIMBOT + ESP" },
+            { title: "PUBG Mobile", size: "1.8 GB", rating: "4.8", tag: "NO RECOIL" },
+            { title: "Free Fire MAX", size: "800 MB", rating: "4.7", tag: "AUTO HEADSHOT" },
+            { title: "Call of Duty Mobile", size: "2.4 GB", rating: "4.6", tag: "CP GENERATOR" },
+            { title: "Blood Strike", size: "850 MB", rating: "4.7", tag: "WALLHACK" },
+            { title: "Warzone Mobile", size: "3.5 GB", rating: "4.5", tag: "FPS BOOST/ESP" },
+            { title: "Standoff 2", size: "1.2 GB", rating: "4.6", tag: "SKIN CHANGER" },
+            { title: "Farlight 84", size: "1.5 GB", rating: "4.5", tag: "UNLIMITED GOLD" },
+            { title: "Critical Ops", size: "900 MB", rating: "4.4", tag: "RADAR HACK" },
             
             // --- ACTION & RPG ---
-            { title: "Genshin Impact", size: "4.2 GB", rating: "4.8", tag: "UNLIMITED PRIMOS", img: "https://images.unsplash.com/photo-1614680376573-3e4e1ef2411e?auto=format&fit=crop&q=80&w=400" },
-            { title: "Honkai: Star Rail", size: "5.1 GB", rating: "4.8", tag: "STELLAR JADES", img: "https://images.unsplash.com/photo-1614680376573-3e4e1ef2411e?auto=format&fit=crop&q=80&w=400" },
-            { title: "Solo Leveling: ARISE", size: "3.0 GB", rating: "4.9", tag: "GOD MODE", img: "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&q=80&w=400" },
-            { title: "Diablo Immortal", size: "3.5 GB", rating: "4.4", tag: "MAX DAMAGE", img: "https://images.unsplash.com/photo-1614680376573-3e4e1ef2411e?auto=format&fit=crop&q=80&w=400" },
-            { title: "Shadow Fight 4", size: "1.5 GB", rating: "4.5", tag: "ONE HIT KILL", img: "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&q=80&w=400" },
-            { title: "Shadow Fight 3", size: "1.2 GB", rating: "4.6", tag: "MAX LEVEL", img: "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&q=80&w=400" },
-            { title: "Mortal Kombat", size: "1.8 GB", rating: "4.5", tag: "UNLIMITED SOULS", img: "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&q=80&w=400" },
-            { title: "Marvel Contest of Champions", size: "1.6 GB", rating: "4.7", tag: "FROZEN AI", img: "https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&q=80&w=400" },
+            { title: "Genshin Impact", size: "4.2 GB", rating: "4.8", tag: "UNLIMITED PRIMOS" },
+            { title: "Honkai: Star Rail", size: "5.1 GB", rating: "4.8", tag: "STELLAR JADES" },
+            { title: "Solo Leveling: ARISE", size: "3.0 GB", rating: "4.9", tag: "GOD MODE" },
+            { title: "Diablo Immortal", size: "3.5 GB", rating: "4.4", tag: "MAX DAMAGE" },
+            { title: "Shadow Fight 4", size: "1.5 GB", rating: "4.5", tag: "ONE HIT KILL" },
+            { title: "Shadow Fight 3", size: "1.2 GB", rating: "4.6", tag: "MAX LEVEL" },
+            { title: "Mortal Kombat", size: "1.8 GB", rating: "4.5", tag: "UNLIMITED SOULS" },
+            { title: "Marvel Contest of Champions", size: "1.6 GB", rating: "4.7", tag: "FROZEN AI" },
             
             // --- MOBA & STRATEGY ---
-            { title: "Mobile Legends", size: "1.2 GB", rating: "4.7", tag: "MAP HACK / DRONE", img: "https://images.unsplash.com/photo-1614680376573-3e4e1ef2411e?auto=format&fit=crop&q=80&w=400" },
-            { title: "Brawl Stars", size: "200 MB", rating: "4.9", tag: "ALL BRAWLERS", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=400" },
-            { title: "Clash of Clans", size: "300 MB", rating: "4.7", tag: "PRIVATE SERVER", img: "https://images.unsplash.com/photo-1614680376593-902f74fa0d41?auto=format&fit=crop&q=80&w=400" },
-            { title: "Clash Royale", size: "180 MB", rating: "4.6", tag: "UNLIMITED GEMS", img: "https://images.unsplash.com/photo-1614680376593-902f74fa0d41?auto=format&fit=crop&q=80&w=400" },
-            { title: "League of Legends: Wild Rift", size: "2.5 GB", rating: "4.6", tag: "SKIN UNLOCKER", img: "https://images.unsplash.com/photo-1614680376573-3e4e1ef2411e?auto=format&fit=crop&q=80&w=400" },
-            { title: "Rise of Kingdoms", size: "1.1 GB", rating: "4.5", tag: "FREE RESOURCES", img: "https://images.unsplash.com/photo-1614680376593-902f74fa0d41?auto=format&fit=crop&q=80&w=400" },
-            { title: "Plants vs Zombies 2", size: "750 MB", rating: "4.8", tag: "0 SUN COST", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=400" },
+            { title: "Mobile Legends", size: "1.2 GB", rating: "4.7", tag: "MAP HACK / DRONE" },
+            { title: "Brawl Stars", size: "200 MB", rating: "4.9", tag: "ALL BRAWLERS" },
+            { title: "Clash of Clans", size: "300 MB", rating: "4.7", tag: "PRIVATE SERVER" },
+            { title: "Clash Royale", size: "180 MB", rating: "4.6", tag: "UNLIMITED GEMS" },
+            { title: "League of Legends: Wild Rift", size: "2.5 GB", rating: "4.6", tag: "SKIN UNLOCKER" },
+            { title: "Rise of Kingdoms", size: "1.1 GB", rating: "4.5", tag: "FREE RESOURCES" },
+            { title: "Plants vs Zombies 2", size: "750 MB", rating: "4.8", tag: "0 SUN COST" },
             
             // --- SANDBOX & OPEN WORLD ---
-            { title: "Roblox", size: "150 MB", rating: "4.9", tag: "ARCEUS X MENU", img: "https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&q=80&w=400" },
-            { title: "Minecraft PE", size: "450 MB", rating: "4.9", tag: "GOD MODE", img: "https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&q=80&w=400" },
-            { title: "GTA San Andreas", size: "1.9 GB", rating: "4.9", tag: "CLEO MOD MENU", img: "https://images.unsplash.com/photo-1547119957-637f8679db1e?auto=format&fit=crop&q=80&w=400" },
-            { title: "GTA Vice City", size: "1.5 GB", rating: "4.8", tag: "UNLIMITED MONEY", img: "https://images.unsplash.com/photo-1547119957-637f8679db1e?auto=format&fit=crop&q=80&w=400" },
-            { title: "Terraria", size: "250 MB", rating: "4.7", tag: "FREE CRAFTING", img: "https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&q=80&w=400" },
-            { title: "Pokemon GO", size: "300 MB", rating: "4.6", tag: "SPOOFER / JOYSTICK", img: "https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&q=80&w=400" },
+            { title: "Roblox", size: "150 MB", rating: "4.9", tag: "ARCEUS X MENU" },
+            { title: "Minecraft PE", size: "450 MB", rating: "4.9", tag: "GOD MODE" },
+            { title: "GTA San Andreas", size: "1.9 GB", rating: "4.9", tag: "CLEO MOD MENU" },
+            { title: "GTA Vice City", size: "1.5 GB", rating: "4.8", tag: "UNLIMITED MONEY" },
+            { title: "Terraria", size: "250 MB", rating: "4.7", tag: "FREE CRAFTING" },
+            { title: "Pokemon GO", size: "300 MB", rating: "4.6", tag: "SPOOFER / JOYSTICK" },
 
             // --- CASUAL & ARCADE ---
-            { title: "Subway Surfers", size: "130 MB", rating: "4.8", tag: "UNLIMITED COINS", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=400" },
-            { title: "Stumble Guys", size: "180 MB", rating: "4.6", tag: "GEMS MENU", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=400" },
-            { title: "Among Us", size: "120 MB", rating: "4.4", tag: "ALWAYS IMPOSTER", img: "https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&q=80&w=400" },
-            { title: "8 Ball Pool", size: "90 MB", rating: "4.6", tag: "LONG LINE ESP", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=400" },
-            { title: "Coin Master", size: "110 MB", rating: "4.3", tag: "UNLIMITED SPINS", img: "https://images.unsplash.com/photo-1628149269526-35db690e9175?auto=format&fit=crop&q=80&w=400" },
-            { title: "Candy Crush Saga", size: "95 MB", rating: "4.8", tag: "ALL LEVELS UNLOCKED", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=400" },
-            { title: "Geometry Dash", size: "85 MB", rating: "4.9", tag: "ALL ICONS", img: "https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&q=80&w=400" },
-            { title: "Temple Run 2", size: "140 MB", rating: "4.5", tag: "FREE SHOP", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=400" },
-            { title: "My Talking Tom 2", size: "135 MB", rating: "4.6", tag: "MAX COINS", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=400" },
-            { title: "Angry Birds 2", size: "280 MB", rating: "4.5", tag: "INFINITE GEMS", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=400" },
+            { title: "Subway Surfers", size: "130 MB", rating: "4.8", tag: "UNLIMITED COINS" },
+            { title: "Stumble Guys", size: "180 MB", rating: "4.6", tag: "GEMS MENU" },
+            { title: "Among Us", size: "120 MB", rating: "4.4", tag: "ALWAYS IMPOSTER" },
+            { title: "8 Ball Pool", size: "90 MB", rating: "4.6", tag: "LONG LINE ESP" },
+            { title: "Coin Master", size: "110 MB", rating: "4.3", tag: "UNLIMITED SPINS" },
+            { title: "Candy Crush Saga", size: "95 MB", rating: "4.8", tag: "ALL LEVELS UNLOCKED" },
+            { title: "Geometry Dash", size: "85 MB", rating: "4.9", tag: "ALL ICONS" },
+            { title: "Temple Run 2", size: "140 MB", rating: "4.5", tag: "FREE SHOP" },
+            { title: "My Talking Tom 2", size: "135 MB", rating: "4.6", tag: "MAX COINS" },
+            { title: "Angry Birds 2", size: "280 MB", rating: "4.5", tag: "INFINITE GEMS" },
 
             // --- RACING & SIMULATION ---
-            { title: "Car Parking Multi", size: "600 MB", rating: "4.5", tag: "ALL CARS UNLOCKED", img: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=400" },
-            { title: "Asphalt 9: Legends", size: "2.6 GB", rating: "4.6", tag: "NITRO HACK", img: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=400" },
-            { title: "Need for Speed NL", size: "1.4 GB", rating: "4.5", tag: "NO DAMAGE", img: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=400" },
-            { title: "Real Racing 3", size: "1.1 GB", rating: "4.6", tag: "GOLD GENERATOR", img: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=400" },
-            { title: "CSR Racing 2", size: "2.8 GB", rating: "4.7", tag: "FREE UPGRADES", img: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=400" },
-            { title: "Bus Simulator: Ultimate", size: "1.2 GB", rating: "4.4", tag: "UNLIMITED MONEY", img: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=400" },
-            { title: "The Sims Mobile", size: "1.5 GB", rating: "4.5", tag: "UNLIMITED SIMOLEONS", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=400" },
+            { title: "Car Parking Multi", size: "600 MB", rating: "4.5", tag: "ALL CARS UNLOCKED" },
+            { title: "Asphalt 9: Legends", size: "2.6 GB", rating: "4.6", tag: "NITRO HACK" },
+            { title: "Need for Speed NL", size: "1.4 GB", rating: "4.5", tag: "NO DAMAGE" },
+            { title: "Real Racing 3", size: "1.1 GB", rating: "4.6", tag: "GOLD GENERATOR" },
+            { title: "CSR Racing 2", size: "2.8 GB", rating: "4.7", tag: "FREE UPGRADES" },
+            { title: "Bus Simulator: Ultimate", size: "1.2 GB", rating: "4.4", tag: "UNLIMITED MONEY" },
+            { title: "The Sims Mobile", size: "1.5 GB", rating: "4.5", tag: "UNLIMITED SIMOLEONS" },
             
             // --- SPORTS ---
-            { title: "FC Mobile 24", size: "1.1 GB", rating: "4.5", tag: "MAX OVR", img: "https://images.unsplash.com/photo-1518605368461-1e1e1146860d?auto=format&fit=crop&q=80&w=400" },
-            { title: "eFootball 2024", size: "2.8 GB", rating: "4.4", tag: "FREE MYCLUB COINS", img: "https://images.unsplash.com/photo-1518605368461-1e1e1146860d?auto=format&fit=crop&q=80&w=400" },
-            { title: "Dream League Soccer", size: "550 MB", rating: "4.6", tag: "DUMB AI BOT", img: "https://images.unsplash.com/photo-1518605368461-1e1e1146860d?auto=format&fit=crop&q=80&w=400" }
+            { title: "FC Mobile 24", size: "1.1 GB", rating: "4.5", tag: "MAX OVR" },
+            { title: "eFootball 2024", size: "2.8 GB", rating: "4.4", tag: "FREE MYCLUB COINS" },
+            { title: "Dream League Soccer", size: "550 MB", rating: "4.6", tag: "DUMB AI BOT" }
         ];
 
         // ==========================================
-        // SYSTEM LOGIC - DO NOT TOUCH BELOW
+        // SYSTEM LOGIC - DYNAMIC IMAGE ENGINE
         // ==========================================
 
         const gridContainer = document.getElementById('appsGrid');
@@ -301,9 +303,14 @@
         function loadGames() {
             gridContainer.innerHTML = '';
             nexisDatabase.forEach(game => {
+                
+                // DYNAMIC IMAGE GENERATOR: Automatically fetches a genuine game thumbnail based on the title!
+                let searchQuery = encodeURIComponent(game.title + " game poster");
+                let dynamicThumbnail = `https://tse2.mm.bing.net/th?q=${searchQuery}&w=400&h=200&c=7`;
+
                 const card = `
                 <div class="app-card">
-                    <div class="thumb-area" style="background-image: url('${game.img}');">
+                    <div class="thumb-area" style="background-image: url('${dynamicThumbnail}');">
                         <div class="mod-tag">${game.tag}</div>
                     </div>
                     <div class="info">
